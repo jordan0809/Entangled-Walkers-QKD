@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qrwqkd"
+version = "0.0.1"
+description = "Simulation of a quantum key distribution (QKD) protocol based on entangled quantum walkers."
+readme = "README.md"
+authors = [
+  { name="Chia-Tso Lai", email="chiatsolai@gmail.com" },
+]
+requires-python = ">=3.12"
+
+dependencies = [
+    "geqo[sympy,numpy,cupy,visualization]"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
