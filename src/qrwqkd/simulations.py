@@ -282,9 +282,13 @@ class EntangledWalkersQKD:
             for i in range(4)
         }
         if normalize:
-            ensemble = {
-                key: (item[0], item[1] / item[0]) for key, item in ensemble.items()
-            }
+            ens = {}
+            for key, item in ensemble.items():
+                if item[0] != 0:
+                    ens[key] = (item[0], item[1] / item[0])
+                else:
+                    ens[key] = item
+            ensemble = ens
 
         # aggregate probability distributions over all BSM outcomes
         prob = np.array([bell_tensor[i] for i in range(4)])
@@ -384,7 +388,7 @@ class EntangledWalkersQKD:
                         break
 
         # Calculate Shannon entropy of sifted keys
-        p = np.sum([1 for k in sifted_keys if k == 2]) / len(sifted_keys)
+        p = np.sum([1 for k in sifted_keys if k == steps]) / len(sifted_keys)
         entropy = -p * np.log2(p) - (1 - p) * np.log2(1 - p)
 
         print("Shared key rate:", np.sum(success) / nrounds)
