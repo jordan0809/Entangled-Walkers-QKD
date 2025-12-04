@@ -1,5 +1,6 @@
 # Entangled-Walkers-QKD
-Simulation of a quantum key distribution (QKD) protocol based on entangled quantum walkers. This project uses the quantum SDK `geqo` to simulate quantum circuits for the protocol. 
+Simulation of a novel quantum key distribution (QKD) protocol based on two entangled quantum walkers, as proposed in the paper [Entangled Quantum Walkers for Secure Quantum Key Distribution](https://arxiv.org/abs/2508.05593).
+This project uses the quantum SDK `geqo` to simulate quantum circuits for the protocol. 
 
 For more information on `geqo`, see:
 
